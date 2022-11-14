@@ -1,0 +1,6 @@
+project: resize
+target: resize-fuzz
+
+cmds:
+    - cmd: ./resize-fuzz
+      libfuzzer: true

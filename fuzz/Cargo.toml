@@ -1,0 +1,28 @@
+[package]
+name = "resize-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+rgb = "0.8.33"
+
+[dependencies.resize]
+path = ".."
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[profile.release]
+debug = 1
+
+[[bin]]
+name = "resize-fuzz"
+path = "fuzz_targets/resize-fuzz.rs"
+test = false
+doc = false
